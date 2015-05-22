@@ -1,0 +1,28 @@
+{
+  "name": "node-php-escape-shell",
+  "version": "0.1.0",
+  "description": "Based on php shell metacharacters escape functions",
+  "main": "php-escape-shell.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/realgam3/node-php-escape-shell.git"
+  },
+  "keywords": [
+    "php",
+    "shell",
+    "escape",
+    "security",
+    "escapeshellarg",
+    "escapeshellcmd",
+    "command injection"
+  ],
+  "author": "Tomer Zait - RealGame <realgam3@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/realgam3/node-php-escape-shell/issues"
+  },
+  "homepage": "https://github.com/realgam3/node-php-escape-shell"
+}
