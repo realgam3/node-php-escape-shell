@@ -1,8 +1,22 @@
-function escapeshellarg(str, isWindows) {
-    if(isWindows === true) {
-        return '"' + str.replace(/["%]/g, ' ') + '"';
+function escapeshellarg(cmd, isWindows, escapeWinEnv) {
+    /**
+     @param {string} cmd
+     @param {boolean} isWindows
+     @param {boolean} escapeWinEnv
+     @return {string}
+     */
+    // Set Default Value: True.
+    if (typeof(isWindows) === "undefined") { isWindows = true; }
+    if (typeof(escapeWinEnv) === "undefined") { escapeWinEnv = true; }
+
+    if (isWindows === true) {
+        var escaped_cmd = '"' + cmd.replace(/"/g, ' ') + '"';
+        if (escapeWinEnv === true) {
+            escaped_cmd = escaped_cmd.replace(/%/g, ' ')
+        }
+        return escaped_cmd;
     }
-    return "'" + str.replace(/'/g, "'\\'") + "'";
+    return "'" + cmd.replace('\'', "'\\'") + "'";
 }
 exports.escapeshellarg = escapeshellarg;
 
@@ -10,16 +24,24 @@ exports.php_escapeshellarg = function(str) {
     return escapeshellarg(str, /^win/.test(process.platform))
 };
 
-function escapeshellcmd(str, isWindows, escapeWinEnv) {
+
+function escapeshellcmd(cmd, isWindows, escapeWinEnv) {
+    /**
+     @param {string} cmd
+     @param {boolean} isWindows
+     @param {boolean} escapeWinEnv
+     @return {string}
+     */
     // Set Default Value: True.
+    if (typeof(isWindows) === "undefined") { isWindows = true; }
     if (typeof(escapeWinEnv) === "undefined") { escapeWinEnv = true; }
 
-    var escaped_cmd = str.replace(
+    var escaped_cmd = cmd.replace(
         /(["'#&;`\|\*\?~<>\^\(\)\[\]\{\}\$\\\x0A\xFF])/g,
         (isWindows === true) ? '^$1': '\\$1'
     );
     if ((escapeWinEnv === true) && (isWindows === true)) {
-        escaped_cmd = str.replace('%', '^$1');
+        escaped_cmd = escaped_cmd.replace(/%/g, '^%');
     }
     return escaped_cmd;
 }
