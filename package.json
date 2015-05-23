@@ -1,5 +1,5 @@
 {
-  "name": "node-php-escape-shell",
+  "name": "php-escape-shell",
   "version": "1.0.0",
   "description": "Based on php shell metacharacters escape functions",
   "main": "php-escape-shell.js",

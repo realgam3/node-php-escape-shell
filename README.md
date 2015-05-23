@@ -6,7 +6,7 @@ Based on php shell metacharacters escape functions
 Install
 -------
 
-    npm install node-php-escape-shell
+    npm install php-escape-shell
 
 Description
 -------
