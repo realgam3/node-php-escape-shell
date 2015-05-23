@@ -1,6 +1,6 @@
 {
   "name": "node-php-escape-shell",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Based on php shell metacharacters escape functions",
   "main": "php-escape-shell.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "escapeshellcmd",
     "command injection"
   ],
-  "author": "Tomer Zait - RealGame <realgam3@gmail.com>",
+  "author": "Tomer Zait <realgam3@gmail.com> (http://www.RealGame.co.il)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/realgam3/node-php-escape-shell/issues"

@@ -28,6 +28,11 @@ assert.equal(
     phpescapeshell.escapeshellarg("Hello World - Test String!"),
     "\"Hello World - Test String!\""
 );
+// escapeshellcmd - Duplicates
+assert.equal(
+    phpescapeshell.escapeshellarg("\"\"%Test%\"\""),
+    "\"   Test   \""
+);
 
 
 // escapeshellcmd - isWindows=false, escapeWinEnv=false
@@ -54,4 +59,9 @@ assert.equal(
 assert.equal(
     phpescapeshell.escapeshellcmd("Hello World - Test String!"),
     "Hello World - Test String!"
+);
+// escapeshellcmd - Duplicates
+assert.equal(
+    phpescapeshell.escapeshellcmd("\"\"%Test%\"\""),
+    "^\"^\"^%Test^%^\"^\""
 );
